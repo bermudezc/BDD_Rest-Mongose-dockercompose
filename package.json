@@ -1,11 +1,13 @@
 {
-  "name": "app",
+  "name": "node-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "nodeapp.js",
+  "description": "API REST en Node.js con MongoDB",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
+  }
 }

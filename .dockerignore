@@ -1,0 +1,23 @@
+# Ignorar archivos node_modules
+node_modules
+npm-debug.log
+
+# Ignorar el archivo .env si usas uno para variables de entorno locales
+.env
+
+# Ignorar logs
+*.log
+
+# Ignorar archivos de configuración de Docker
+docker-compose.yml
+Dockerfile
+
+# Ignorar archivos de sistema (Mac y Linux)
+.DS_Store
+.idea
+.vscode
+*.swp
+
+# Ignorar carpetas de testing locales (si las tienes)
+coverage
+tests

@@ -1,0 +1,34 @@
+# Dependencias de Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de logs
+logs/
+*.log
+
+# Variables de entorno
+.env
+
+# Directorios de testing locales
+coverage/
+tests/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de IDE
+.idea/
+.vscode/
+*.swp
+
+# Archivos relacionados con Docker
+# Si quieres incluir los archivos docker-compose.yml y Dockerfile en tu repositorio, elimínalos de aquí.
+#docker-compose.yml
+#Dockerfile
+
+# Archivos de salida de construcción (si los usas)
+build/
+dist/

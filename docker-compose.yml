@@ -1,0 +1,36 @@
+version: '3'
+services:
+  # Servicio para la API en Node.js
+  api:
+    build: .
+    container_name: node_api
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/mydb
+    depends_on:
+      - mongo
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - app-network
+
+  # Servicio para la base de datos MongoDB
+  mongo:
+    image: mongo:latest
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+# Definición de la red
+networks:
+  app-network:
+    driver: bridge
+
+# Volúmenes
+volumes:
+  mongo-data:
