@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config()
 const app = express();
 const port = 3000;
 
@@ -7,7 +8,8 @@ const port = 3000;
 app.use(express.json());
 
 // Conectar a MongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+console.log('mongo->',process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true})
   .then(() => console.log('Conectado a MongoDB'))
   .catch(err => console.error('Error al conectar a MongoDB', err));
 
@@ -26,6 +28,7 @@ const Usuario = mongoose.model('Usuario', usuarioSchema);
 // Crear un nuevo usuario (POST)
 app.post('/usuarios', async (req, res) => {
   try {
+    console.log('usuario:', req.body)
     const usuario = new Usuario(req.body);
     const resultado = await usuario.save();
     res.status(201).json(resultado);
@@ -45,9 +48,9 @@ app.get('/usuarios', async (req, res) => {
 });
 
 // Obtener un usuario por ID (GET)
-app.get('/usuarios/:id', async (req, res) => {
+app.get('/usuarios/:email', async (req, res) => {
   try {
-    const usuario = await Usuario.findById(req.params.id);
+    const usuario = await Usuario.findOne( {'email':req.params.email} );
     if (!usuario) {
       return res.status(404).json({ mensaje: 'Usuario no encontrado' });
     }
