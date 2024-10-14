@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Instalamos las dependencias
-RUN npm install
+RUN ls & npm install
 
 # Copiamos el resto de los archivos de la API
 COPY . .
