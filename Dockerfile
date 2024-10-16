@@ -1,6 +1,6 @@
 # Usamos una imagen base oficial de Node.js
 # FROM node:20-alpine
-FROM node:22-alpine
+FROM node:18-alpine
 
 # Establecemos el directorio de trabajo en el contenedor
 WORKDIR /usr/src/app
@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Instalamos las dependencias
-RUN ls && npm install
+RUN npm install
 
 # Copiamos el resto de los archivos de la API
 COPY . .
